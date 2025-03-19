@@ -49,10 +49,12 @@ target_link_libraries(conan INTERFACE ${BoostPython_LIBRARIES} boost::boost pugi
 
 # declare dependencies
 include_directories(autoware_lanelet2_extension/include)
+add_subdirectory(autoware_cmake)
 add_subdirectory(autoware_lanelet2_extension)
 add_subdirectory(autoware_lanelet2_extension_python)
 # declare dependencies
-target_link_libraries(autoware_lanelet2_extension PUBLIC conan)
+target_link_libraries(autoware_cmake PUBLIC conan)
+target_link_libraries(autoware_lanelet2_extension PUBLIC autoware_cmake)
 target_link_libraries(autoware_lanelet2_extension_python PUBLIC autoware_lanelet2_extension)
 """
 
